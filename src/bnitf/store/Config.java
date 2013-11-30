@@ -1,10 +1,11 @@
 package bnitf.store;
 
+import java.awt.*;
 import java.io.*;
 import java.net.*;
 import java.util.*;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class Config {
 	File file;
@@ -13,8 +14,9 @@ public class Config {
 	Properties props;
 	File configfile;
 
-	public Config(JFrame uip) {
-		props = new Properties();
+	public Config(Main uip) {
+		new Installer(uip, this);
+		/*props = new Properties();
 		try {
 			configfile = new File("bnitf/store/Config.xml");
 			InputStream istream = new FileInputStream(configfile);
@@ -22,14 +24,12 @@ public class Config {
 			readConfig();
 		} catch (InvalidPropertiesFormatException e) {
 			e.printStackTrace();
-			//new Installer(uip, file, host, storeName, hostUsername, hostPassword,
-			//		tablePrefix);
+			new Installer(uip, this);
 		} catch (IOException e) {
 			e.printStackTrace();
-			//new Installer(uip, file, host, storeName, hostUsername, hostPassword,
-			//		tablePrefix);
+			new Installer(uip, this);
 		} finally {
-		}
+		}*/
 	}
 
 	public Config(String storeNameN, String usernameHostN,
@@ -75,6 +75,16 @@ public class Config {
 				space.append(' ');
 		}
 		return point.toString();
+	}
+
+	private class Installer {
+		JLabel textNameS = new JLabel();
+		public Installer(Main uip, Config config) {
+			//installPane.setLayout(new BorderLayout());
+			textNameS.setName("Host");
+			uip.setTitle("Install DATABASE");
+		}
+
 	}
 
 }

@@ -14,8 +14,7 @@ public class Main extends JFrame {
 	/*
 	 * This is method
 	 */
-	public Main(String name) {
-		super(name);
+	public Main() {
 		Toolkit tk = Toolkit.getDefaultToolkit();
 		xSize = ((int) tk.getScreenSize().getWidth());
 		ySize = ((int) tk.getScreenSize().getHeight());
@@ -26,10 +25,11 @@ public class Main extends JFrame {
 
 	public void connectDATABASE() {
 		config = new Config(this);
+		
 	}
 
 	public static void main(String[] args) {
-		Main m = new Main("test");
+		Main m = new Main();
 		m.connectDATABASE();
 	}
 
